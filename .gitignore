@@ -1,2 +1,14 @@
 # VS folder
 .vs/
+
+# Temporary
+*.cache
+*.db
+*.opendb
+*.VC.db
+
+# User-specific
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
