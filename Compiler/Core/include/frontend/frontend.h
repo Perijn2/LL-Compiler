@@ -21,8 +21,8 @@
 // -----------------------------------------------------------------------------------------------------------------
 
 #pragma once
-#ifndef _CORE_FRONTEND_H_
-#define _CORE_FRONTEND_H_
+#ifndef CORE_FRONTEND_H_
+#define CORE_FRONTEND_H_
 
 // -----------------------------------------------------------------------------------------------------------------
 //  Includes
@@ -30,37 +30,38 @@
 
 /* Standard headers */
 #include <stdint.h>
-#include <stdbool.h>
-#include <stddef.h>
 
 /* Project headers */
 #include "status.h"
 
+/* Frontend headers */
 #include "frontend_pass.h"
+#include "translation_unit.h"
 
 // -----------------------------------------------------------------------------------------------------------------
 //  Public Types
 // -----------------------------------------------------------------------------------------------------------------
 
 typedef struct _frontend_config {
-	const char* output_file;
+	//const char* output_file;
     const char* output_dir;
 
+    /* The frontend pass plan to execute */
     fe_pass_plan_t passes;
 } frontend_config_t;
 
 typedef struct _frontend_driver frontend_driver_t;
 typedef frontend_driver_t* frontend_handle_t;
 
-status_err_t create_frontend(const frontend_config_t* config, frontend_handle_t* fe);
-status_err_t destroy_frontend(frontend_handle_t fe);
+status_err_t fe_create_driver(const frontend_config_t* config, frontend_handle_t* fe);
+status_err_t fe_destroy_driver(frontend_handle_t fe);
 
-status_err_t frontend_add_tu();
+status_err_t fe_append_unit(frontend_handle_t fe, translation_unit_handle_t tu);
 
-status_err_t frontend_dispatch();
+status_err_t fe_run_pipeline();
 
 // -----------------------------------------------------------------------------------------------------------------
 
-#endif // !_CORE_FRONTEND_H_
+#endif // !CORE_FRONTEND_H_
 
 // -----------------------------------------------------------------------------------------------------------------
