@@ -8,21 +8,13 @@ project "CompilerCore"
 
 	files
 	{
-		"%{SourceDir.Core}" .. "/**.c",
-		"%{SourceDir.Common}" .. "/**.c",
-		"%{SourceDir.Utils}" .. "/**.c",
+		"%{SourceDir.Compiler}" .. "/**.c",
 
-		"%{SourceDir.Core}" .. "/**.h",
-		"%{SourceDir.Common}" .. "/**.h",
-		"%{SourceDir.Utils}" .. "/**.h",
+		"%{SourceDir.Compiler}" .. "/**.h",
 
-		"%{IncludeDir.Core}" .. "/**.h",
-		"%{IncludeDir.Common}" .. "/**.h",
-		"%{IncludeDir.Utils}" .. "/**.h"
+		"%{IncludeDir.Compiler}" .. "/**.h",
 	}
 
 	includedirs {
-		"%{IncludeDir.Core}",
-		"%{IncludeDir.Common}",
-		"%{IncludeDir.Utils}"
+		"%{IncludeDir.Compiler}",
 	}
